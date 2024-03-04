@@ -1,0 +1,22 @@
+clc;
+clear; % أو clearvars إذا كنت ترغب في حذف المتغيرات فقط
+close all;
+%% Taking an Image
+[fname, path]=uigetfile('.jpg','Open an Image as input for TRINNG');
+fname=strcat(path, fname);
+im=imread(fname);
+im=im2bw(im);
+imshow(im);
+title('Input Image');
+c=input('Enter the Class(Number from 1-12)');
+%% Feature Extraction
+F=ffffffffffffff(im);
+try
+    load db;
+    F=[F c];
+    db=[db; F];
+    save db.mat db
+catch
+    db=[F c]; % 10 12 1
+    save db.mat db
+end
